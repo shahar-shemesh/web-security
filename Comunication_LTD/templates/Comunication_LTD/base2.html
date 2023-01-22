@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <!-- MDB icon -->
+<!--    <link rel="icon" href="img/mdb-favicon.ico" type="image/x-icon" />-->
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    {% if title %}
+        <title>Comunication LTD - {{ title }}</title>
+    {% else %}
+        <title>Comunication LTD</title>
+    {% endif %}
+
+    <!-- Google Fonts Roboto -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap"
+    />
+    <!-- MDB -->
+    <link rel="stylesheet" href="{% static 'Comunication_LTD/css/mdb.min.css' %}" />
+  </head>
+  <body style=" background: url({% static 'Comunication_LTD/img/background.png' %}); ">
+
+      <style>
+      .article-title {
+      display: inline-block;
+      position: relative;
+      color: #b4794d;
+    }
+
+    .nav-link{
+      display: inline-block;
+      position: relative;
+      color: #b4794d;
+    }
+      .nav-link:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #b4794d;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    .nav-link:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+      background-color: #b4794d;
+    }
+
+
+      .article-title:after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      transform: scaleX(0);
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #b4794d;
+      transform-origin: bottom right;
+      transition: transform 0.25s ease-out;
+    }
+
+    .article-title:hover:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+      background-color: #b4794d;
+    }
+        a:hover {
+  color: #b4794d;
+  background-color: transparent;
+  text-decoration: none;
+}
+    </style>
+
+
+    <!-- Start your project here-->
+
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+  <!-- Container wrapper -->
+  <div class="container-fluid" style="margin-right: 4vw; margin-left: 4vw;">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="{% url 'Comunication_LTD-home' %}">
+        <img
+          src="https://img001.prntscr.com/file/img001/rPDtfO9rSwq3ShxGq-xNCA.png"
+          height="80"
+          alt="Comunication LTD"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Comunication_LTD-home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Comunication_LTD-about' %}">About</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+      <!-- Avatar -->
+      {% if user.is_authenticated %}
+          <div class="dropdown">
+            <a
+              class="dropdown-toggle d-flex align-items-center hidden-arrow"
+              href="#"
+              id="navbarDropdownMenuAvatar"
+              role="button"
+              data-mdb-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <img
+                src="{% static 'Comunication_LTD/img/usericon.png' %}"
+                class="rounded-circle"
+                height="25"
+                alt="Black and White Portrait of a Man"
+                loading="lazy"
+              />
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdownMenuAvatar"
+            >
+              <li>
+                <a class="dropdown-item" href="{% url 'profile' %}">Profile</a>
+              </li>
+
+              {% if user.is_superuser %}
+                  <li>
+                    <a class="dropdown-item" href="{% url 'system' %}">Quick View</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="/admin">Admin panel</a>
+                  </li>
+              {% endif %}
+
+              <li>
+                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
+              </li>
+            </ul>
+          </div>
+      {% else %}
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'register' %}">Register</a>
+            </li>
+          </ul>
+      {% endif %}
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+
+  </br>
+  <main role="main" class="container">
+    <div class="row">
+        {% if messages %}
+          {% for message in messages %}
+              <div class="alert alert-{{ messages.tags }}" style="
+              box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+              background-color: #ffffff;
+              opacity: 0.99;
+           ">
+                  {{ message }}
+              </div>
+          {% endfor %}
+        {% endif %}
+    </div>
+  </main>
+
+    {% if posts %}
+
+      {% for post in posts %}
+        <article class="media content-section" style="
+              width: fit-content;
+              box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+              margin-top: 3vw;
+              margin-bottom: 3vw;
+              margin-right: 20vw;
+              margin-left: 20vw;
+              padding: 3vw 6vw 4vw 6vw;
+              border-radius: 30px;
+              background-color: #ffffff;
+              opacity: 0.97;
+              color: black;
+
+           ">
+          <div class="media-body">
+            <h2><a class="article-title" href="{% url 'post-detail' post.id %}">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+                        <div class="article-metadata">
+              <small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+
+
+
+    {% else %}
+
+     <div class="row2" style="
+              width: fit-content;
+              box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px, rgba(0, 0, 0, 0.22) 0px 15px 12px;
+              margin: auto;
+              margin-top: 2vw;
+              padding: 3vw 6vw 4vw 6vw;
+              border-radius: 30px;
+              background-color: #ffffff;
+              opacity: 0.97;
+           ">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+    {% endif %}
+
+
+      </div>
+
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <!-- Custom scripts -->
+
+    <script type="text/javascript" src="{% static 'Comunication_LTD/js/mdb.min.js' %}"></script>
+    <script type="text/javascript"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>

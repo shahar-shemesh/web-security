@@ -1,0 +1,28 @@
+{%  extends "Comunication_LTD/base2.html" %}
+{% block content %}
+
+<br>
+<div class="row">
+		<h5>CUSTOMERS:</h5>
+		<hr>
+		<div class="card card-body">
+			<table class="table table-sm">
+				<tr>
+					<th>Username</th>
+					<th>Email</th>
+				</tr>
+
+				{% for user in users %}
+					<tr>
+						<td>{{user.username|safe}}</td>
+						<td>{{user.email|safe}}</td>
+					</tr>
+				{% endfor %}
+
+			</table>
+            <a class="btn btn-primary  btn-sm btn-block" href="{% url 'quick_user' %}">Create Customer</a>
+		</div>
+</div>
+
+{% endblock content %}
+

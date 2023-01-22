@@ -1,0 +1,13 @@
+{% extends "Comunication_LTD/base2.html" %}
+{% block content %}
+
+    <article class="media content-section" style="width: 60%; margin: auto;">
+      <div class="media-body">
+        <h1 class="article-title">{{ object.title }}</h1>
+          <a class="mr-2" href="#">{{ object.author }}</a>
+        <h3 class="article-content">{{ object.content }}</h3>
+          <small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+      </div>
+    </article>
+
+{% endblock content %}

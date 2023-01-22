@@ -1,0 +1,33 @@
+{% extends "Comunication_LTD/base2.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                </br>
+                <legend class="border-bottom mb-4">Log In</legend>
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                </br>
+                <button class="btn btn-primary btn-block" type="submit">Login</button>
+                <small class="text-muted ml-2">
+                    <a href="{% url 'password_reset' %}">Forgot password?</a>
+                    </br>
+                </small>
+            </div>
+
+        </form>
+
+        <div class="text-center">
+            </br>
+            <p>Not a member? <a href="{% url 'register' %}">Register</a></p>
+        </div>
+
+
+    </div>
+{% endblock content %}
+
+
+
