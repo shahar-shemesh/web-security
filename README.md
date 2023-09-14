@@ -1,2 +1,2 @@
-# django_project
+# Web Security
 Web application that I built using the Django framework. The application focuses on enhancing security measures for personal and sensitive information by implementing various techniques such as encryption, authentication, and authorization. The user is prompted to create a secure login and can then input and store sensitive information, which is encrypted before being stored in the database. The user also has the ability to view and edit their stored information, with proper authentication and authorization in place to prevent unauthorized access. Overall, this project demonstrates the ability to design and implement effective security measures in a web application using the Django framework.
